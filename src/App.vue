@@ -14,7 +14,7 @@
 
 import Header from '@/components/header'
 import Footer from '@/components/footer'
-
+//这是引入的两个Vue 组件
 export default {
   name: 'App',
   components: {

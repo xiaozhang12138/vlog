@@ -1,5 +1,6 @@
 <template>
   <header :class="{login: isLogin, 'no-login': !isLogin}">
+    <!--引入isLogin 通过 v-if 判断是否显示。-->
     <template v-if="!isLogin">
       <h1>Let's share</h1>
       <p>避坑博客学习历程</p>
@@ -31,6 +32,7 @@
 </template>
 
 <script>
+//引入登陆状态的判定
 import auth from "@/api/auth";
 
 import { mapGetters, mapActions } from "vuex";
@@ -59,8 +61,10 @@ export default {
 
 
 <style lang="less">
+//引入背景色以及通用颜色
 @import "../assets/base.less";
 
+//未登录状态的css
 header.no-login {
   padding: 0 12% 30px 12%;
   background: @bgColor;
@@ -87,7 +91,7 @@ header.no-login {
     margin: 20px 5px 0;
   }
 }
-
+//登陆状态的css
 header.login {
   display: flex;
   align-items: center;
