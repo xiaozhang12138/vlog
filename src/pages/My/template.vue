@@ -39,5 +39,4 @@
 
 <script src="./template.js"></script>
 
-<style src="./template.less" 
-="less"></style>
+<style src="./template.less" lang="less"></style>

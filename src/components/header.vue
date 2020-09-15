@@ -15,13 +15,20 @@
     </template>
     <template v-if="isLogin">
       <h1>Let's share</h1>
-      <i class="edit el-icon-edit"></i>
+      
+      <router-link to="create">
+      <el-button type="primary" icon="el-icon-edit"></el-button>
+      </router-link>
       <div class="user">
         <img class="avatar" :src="user.avatar" :alt="user.username" :title="user.username" />
         <ul>
           <li>
+             <router-link to="/">回到首页</router-link>
+          </li>
+          <li>
             <router-link to="my">我的</router-link>
           </li>
+          
           <li>
             <a href="#" @click="onLogout">注销</a>
           </li>
@@ -32,30 +39,32 @@
 </template>
 
 <script>
-//引入登陆状态的判定
-import auth from "@/api/auth";
 
+//注册这些组件
 import { mapGetters, mapActions } from "vuex";
 
 export default {
   data() {
+    //header 需要判断 isLogin 的值
     return {};
   },
   computed: {
+    //这里引入并注册 isLogin
     ...mapGetters(["isLogin", "user"]),
   },
-
+//组件生命周期：做什么事情，发送请求拉取数据，组件数据拿到的时候，做的一些处理判断，比如放到data里面
   created() {
     this.checkLogin();
   },
 
   methods: {
+    //在异步操作中，把这两个方法拿过来
     ...mapActions(["checkLogin", "logout"]),
 
     onLogout() {
       this.logout();
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -63,7 +72,7 @@ export default {
 <style lang="less">
 //引入背景色以及通用颜色
 @import "../assets/base.less";
-
+@import "../assets/common.less";
 //未登录状态的css
 header.no-login {
   padding: 0 12% 30px 12%;
@@ -131,6 +140,7 @@ header.login {
       margin: 0;
       padding: 0;
       background-color: #fff;
+      width: 80px;
 
       a {
         text-decoration: none;
@@ -138,14 +148,15 @@ header.login {
         font-size: 12px;
         display: block;
         padding: 5px 10px;
+        width: 100%;
 
         &:hover {
           background-color: #eaeaea;
         }
       }
+      
     }
-
-    &:hover ul {
+&:hover ul{
       display: block;
     }
   }
