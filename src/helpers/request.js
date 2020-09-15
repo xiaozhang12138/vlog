@@ -22,7 +22,7 @@ export default function request(url, type = 'GET', data = {}) {
       option.data = data
     }
     axios(option).then(res => {
-      console.log(res.data)
+      
       if(res.data.status === 'ok') {
         resolve(res.data)
       }else{
@@ -58,7 +58,7 @@ export default function request(url, type = 'GET', data = {}) {
     }
  
     axios(option).then(res => {
-      console.log(res.data)
+      
       if(res.data.status === 'ok') {
         if(res.data.token) {
           localStorage.token = res.data.token

@@ -9,7 +9,9 @@ import Register from '@/pages/Register/template.vue'
 import User from '@/pages/User/template.vue'
 import My from '@/pages/My/template.vue'*/
 import store from '../store'
+
 Vue.use(Router)
+
 /*
 const router = new Router({
   mode:'history',

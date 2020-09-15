@@ -14,10 +14,9 @@
       </div>
     </template>
     <template v-if="isLogin">
-      <h1>Let's share</h1>
-      
+      <h1><router-link to="/">Let's share</router-link></h1>
       <router-link to="create">
-      <el-button type="primary" icon="el-icon-edit"></el-button>
+      <i class="edit el-icon-plus"></i>
       </router-link>
       <div class="user">
         <img class="avatar" :src="user.avatar" :alt="user.username" :title="user.username" />
@@ -30,7 +29,7 @@
           </li>
           
           <li>
-            <a href="#" @click="onLogout">注销</a>
+            <a @click="onLogout">注销</a>
           </li>
         </ul>
       </div>
@@ -62,7 +61,10 @@ export default {
     ...mapActions(["checkLogin", "logout"]),
 
     onLogout() {
-      this.logout();
+      this.logout().then(()=>{
+        this.$router.push('/')
+      })
+      
     }
   }
 };
@@ -113,6 +115,10 @@ header.login {
     font-size: 40px;
     text-transform: uppercase;
     flex: 1;
+
+    a{
+      color: #fff;
+    }
   }
 
   .edit {
