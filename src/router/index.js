@@ -101,7 +101,7 @@ router.beforeEach((to,from,next)=>{
       if(!isLogin){
         next({
           path:'/login',
-          query:{ redirect: to.fullPath}
+          query:{ redirect: to.fullPath } 
         })
       }else{
         next()

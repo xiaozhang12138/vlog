@@ -15,7 +15,7 @@
     </template>
     <template v-if="isLogin">
       <h1><router-link to="/">Let's share</router-link></h1>
-      <router-link to="create">
+      <router-link to="/create">
       <i class="edit el-icon-plus"></i>
       </router-link>
       <div class="user">
@@ -25,7 +25,7 @@
              <router-link to="/">回到首页</router-link>
           </li>
           <li>
-            <router-link to="my">我的</router-link>
+            <router-link to="/my">我的</router-link>
           </li>
           
           <li>

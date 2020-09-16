@@ -16,7 +16,6 @@ export default {
     this.blogId = this.$route.params.blogId
     detail.getDetail({ blogId: this.blogId })
       .then(res => {
-        console.log(res.data)
         this.title = res.data.title
         this.description = res.data.description
         this.rawContent = res.data.content
