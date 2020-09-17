@@ -14,31 +14,27 @@
       </div>
     </template>
     <template v-if="isLogin">
-      <h1><router-link to="/">Let's share</router-link></h1>
-      <router-link to="/create">
-      <i class="edit el-icon-plus"></i>
+      <h1>
+        <router-link to="/" title="首页">Let's share</router-link>
+      </h1>
+      <router-link to="/create" title="创建你的博客">
+        <i class="edit el-icon-plus"></i>
       </router-link>
-      <div class="user">
-        <img class="avatar" :src="user.avatar" :alt="user.username" :title="user.username" />
-        <ul>
-          <li>
-             <router-link to="/">回到首页</router-link>
-          </li>
-          <li>
-            <router-link to="/my">我的</router-link>
-          </li>
-          
-          <li>
-            <a @click="onLogout">注销</a>
-          </li>
-        </ul>
-      </div>
+      <el-dropdown>
+        <span class="el-dropdown-link user">
+          <img class="avatar" :src="user.avatar" :alt="user.username" :title="user.username" />        </span>
+        <el-dropdown-menu slot="dropdown">
+          <router-link to="/"><el-dropdown-item>回到首页</el-dropdown-item></router-link>
+          <router-link to="/my"><el-dropdown-item>我的博客</el-dropdown-item></router-link>
+         <a @click="onLogout"> <el-dropdown-item>注销账号</el-dropdown-item></a>
+        </el-dropdown-menu>
+      </el-dropdown>
+      
     </template>
   </header>
 </template>
 
 <script>
-
 //注册这些组件
 import { mapGetters, mapActions } from "vuex";
 
@@ -51,7 +47,7 @@ export default {
     //这里引入并注册 isLogin
     ...mapGetters(["isLogin", "user"]),
   },
-//组件生命周期：做什么事情，发送请求拉取数据，组件数据拿到的时候，做的一些处理判断，比如放到data里面
+  //组件生命周期：做什么事情，发送请求拉取数据，组件数据拿到的时候，做的一些处理判断，比如放到data里面
   created() {
     this.checkLogin();
   },
@@ -61,12 +57,11 @@ export default {
     ...mapActions(["checkLogin", "logout"]),
 
     onLogout() {
-      this.logout().then(()=>{
-        this.$router.push('/')
-      })
-      
-    }
-  }
+      this.logout().then(() => {
+        this.$router.push("/");
+      });
+    },
+  },
 };
 </script>
 
@@ -116,7 +111,7 @@ header.login {
     text-transform: uppercase;
     flex: 1;
 
-    a{
+    a {
       color: #fff;
     }
   }
@@ -160,11 +155,17 @@ header.login {
           background-color: #eaeaea;
         }
       }
-      
     }
-&:hover ul{
+    &:hover ul {
       display: block;
     }
+  }
+   .el-dropdown-link {
+    cursor: pointer;
+    color: #409EFF;
+  }
+  .el-icon-arrow-down {
+    font-size: 12px;
   }
 }
 </style>

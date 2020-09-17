@@ -1,7 +1,7 @@
 @import "../../assets/base.less";
 
 #index {
-
+  
   .item {
     display: grid;
     grid: auto auto / 80px 1fr;
@@ -46,9 +46,15 @@
 
   }
   .navigation {
-    display: grid;
-    justify-items: center;
-    margin-bottom: 20px;
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+
+    .el-pagination{
+      position: relative;
+      left: -50%;
+    }
+
   }
 
 

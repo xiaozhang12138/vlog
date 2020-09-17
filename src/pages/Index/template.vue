@@ -16,7 +16,7 @@
       </router-link>
     </section>
     <section class="navigation ">
-      <el-pagination layout="prev, pager, next" :total="total" :page-size = "pagesize"
+      <el-pagination  layout="prev, pager, next" :total="total" :page-size = "pagesize"
       @current-change="onPageChang"></el-pagination>
     </section>
   </div>
