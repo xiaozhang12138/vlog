@@ -1,5 +1,5 @@
 <template>
-  <header :class="{login: isLogin, 'no-login': !isLogin}">
+  <header :class="{ login: isLogin, 'no-login': !isLogin }">
     <!--引入isLogin 通过 v-if 判断是否显示。-->
     <template v-if="!isLogin">
       <h1>Let's share</h1>
@@ -20,16 +20,27 @@
       <router-link to="/create" title="创建你的博客">
         <i class="edit el-icon-plus"></i>
       </router-link>
-      <el-dropdown>
+      <el-dropdown trigger="click">
         <span class="el-dropdown-link user">
-          <img class="avatar" :src="user.avatar" :alt="user.username" :title="user.username" />        </span>
+          <img
+            class="avatar"
+            :src="user.avatar"
+            :alt="user.username"
+            :title="user.username"
+          />
+        </span>
         <el-dropdown-menu slot="dropdown">
-          <router-link to="/"><el-dropdown-item>回到首页</el-dropdown-item></router-link>
-          <router-link to="/my"><el-dropdown-item>我的博客</el-dropdown-item></router-link>
-         <a @click="onLogout"> <el-dropdown-item>注销账号</el-dropdown-item></a>
+          <router-link to="/"
+            ><el-dropdown-item>回到首页</el-dropdown-item></router-link
+          >
+          <router-link to="/my"
+            ><el-dropdown-item>我的博客</el-dropdown-item></router-link
+          >
+          <a @click="onLogout">
+            <el-dropdown-item>注销账号</el-dropdown-item></a
+          >
         </el-dropdown-menu>
       </el-dropdown>
-      
     </template>
   </header>
 </template>
@@ -150,19 +161,12 @@ header.login {
         display: block;
         padding: 5px 10px;
         width: 100%;
-
-        &:hover {
-          background-color: #eaeaea;
-        }
       }
     }
-    &:hover ul {
-      display: block;
-    }
   }
-   .el-dropdown-link {
+  .el-dropdown-link {
     cursor: pointer;
-    color: #409EFF;
+    color: #409eff;
   }
   .el-icon-arrow-down {
     font-size: 12px;

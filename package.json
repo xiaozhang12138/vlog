@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "upload": "cd dist; git add . ;git commit -am 'init'; git push --set-upstream origin master ;"
   },
   "dependencies": {
     "axios": "^0.19.2",

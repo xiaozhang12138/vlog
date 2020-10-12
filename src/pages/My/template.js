@@ -18,7 +18,6 @@ export default {
         this.total = res.total;
         this.blogs = res.data;
         this.pagesize = res.data.length
-        
       })
   },
   methods: {
